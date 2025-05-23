@@ -47,6 +47,7 @@ on:
         default: "5.10.237"
         type: choice
         options:
+          - 5.10.237
           - 5.10.111
           - 5.4.y
           - 5.10.y
@@ -62,7 +63,7 @@ on:
       auto_kernel:
         description: "Auto use the latest kernel"
         required: false
-        default: true
+        default: false
         type: boolean
       kernel_repo:
         description: "Set the kernel repository"
