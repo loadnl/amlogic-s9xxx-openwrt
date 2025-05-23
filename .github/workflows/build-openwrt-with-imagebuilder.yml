@@ -7,8 +7,6 @@
 #=====================================================================================
 
 name: Build OpenWrt with ImageBuilder
-env:
-  KERNEL_TAGS: kernel_5.10
 on:
   repository_dispatch:
   workflow_dispatch:
@@ -98,6 +96,7 @@ on:
 
 env:
   TZ: America/New_York
+  KERNEL_TAGS: flippy/5.10.11
   IMAGEBUILDER_SH: config/imagebuilder/imagebuilder.sh
 
 jobs:
