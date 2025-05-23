@@ -47,10 +47,10 @@ on:
       openwrt_kernel:
         description: "Select kernel version"
         required: false
-        default: "5.10.111"
+        default: "5.10.237"
         type: choice
         options:
-          - 5.10.111
+          - 5.10.237
           - 5.4.y
           - 5.10.y
           - 5.15.y
@@ -96,7 +96,6 @@ on:
 
 env:
   TZ: America/New_York
-  KERNEL_TAGS: 5.10.11
   IMAGEBUILDER_SH: config/imagebuilder/imagebuilder.sh
 
 jobs:
@@ -112,7 +111,6 @@ jobs:
         id: init
         env:
           DEBIAN_FRONTEND: noninteractive
-          KERNEL_TAGS: 5.10.11
         run: |
           docker rmi $(docker images -q) 2>/dev/null
           [[ -n "${AGENT_TOOLSDIRECTORY}" ]] && sudo rm -rf "${AGENT_TOOLSDIRECTORY}"
