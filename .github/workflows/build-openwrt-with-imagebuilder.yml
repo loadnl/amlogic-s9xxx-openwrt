@@ -50,6 +50,7 @@ on:
         default: "5.15.184"
         type: choice
         options:
+          - 5.15.184
           - 5.10.237
           - 5.4.y
           - 5.10.y
