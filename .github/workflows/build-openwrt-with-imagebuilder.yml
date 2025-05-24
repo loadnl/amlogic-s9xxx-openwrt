@@ -47,7 +47,7 @@ on:
       openwrt_kernel:
         description: "Select kernel version"
         required: false
-        default: "5.10.237"
+        default: "5.15.184"
         type: choice
         options:
           - 5.10.237
