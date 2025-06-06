@@ -95,6 +95,7 @@ on:
           - loadnl
 
 env:
+  PACKAGES: "luci luci-app-ssr-plus kmod-rtw89 kmod-rtw89-pci rtw89-firmware"
   TZ: America/New_York
   IMAGEBUILDER_SH: config/imagebuilder/imagebuilder.sh
 
