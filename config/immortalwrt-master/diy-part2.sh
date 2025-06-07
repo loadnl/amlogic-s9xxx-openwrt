@@ -31,3 +31,11 @@ git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 #
 # ------------------------------- Other ends -------------------------------
 
+# 修复 Rust 在 CI 环境下 build 报错 llvm.download-ci-llvm=true 的问题
+echo "Fixing Rust CI download error..."
+find build_dir/target-*/host/ -type f -name config.toml | while read cfg; do
+  echo "Patching Rust config: $cfg"
+  sed -i 's/download-ci-llvm *= *true/download-ci-llvm = "if-unchanged"/g' "$cfg"
+done
+
+# ------------------------------- Rust 修复 ended -------------------------------
