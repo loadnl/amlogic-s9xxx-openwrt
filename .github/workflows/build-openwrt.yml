@@ -134,7 +134,8 @@ jobs:
           sudo sed -i '/NVM_DIR/d;/skel/d' /root/{.bashrc,.profile}
           sudo rm -rf ~/{.cargo,.dotnet,.rustup}
           sudo timedatectl set-timezone "${TZ}"
-          sudo apt-get update && sudo apt-get install -y clang
+          sudo apt-get update
+          sudo apt-get install -y gcc g++ clang llvm libcap-dev libbfd-dev libelf-dev
           echo "status=success" >> ${GITHUB_OUTPUT}
           
 
