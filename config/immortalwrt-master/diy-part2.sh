@@ -33,12 +33,6 @@ git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 
 # ------------------------------- Rust 修复 started -------------------------------
 
-RUST_PATCH_FILE="feeds/packages/lang/rust/Makefile"
-
-if [ -f "$RUST_PATCH_FILE" ]; then
-  echo "Patching Rust Makefile to fix CI LLVM download error..."
-  sed -i '/define Build\/Compile/i\\tfind $(BUILD_DIR_BASE)/target-*/host/rustc-*/ -name config.toml -exec sed -i '\''s/download-ci-llvm *= *true/download-ci-llvm = "if-unchanged"/'\'' {} +' "$RUST_PATCH_FILE"
-fi
 
 # ------------------------------- Rust 修复 ended -------------------------------
 
