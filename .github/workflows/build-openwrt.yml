@@ -118,20 +118,6 @@ jobs:
           repository: loadnl/amlogic-s9xxx-openwrt
           ref: main
           path: myconfig
-          
-      # 引入缓存
-      - name: Cache feeds dl and build artifacts
-        uses: actions/cache@v3
-        with:
-          path: |
-            openwrt/dl
-            openwrt/staging_dir
-            openwrt/build_dir/hostpkg/gn-*
-            openwrt/build_dir/hostpkg/rust-*
-          key: ${{ runner.os }}-openwrt-${{ inputs.source_branch }}-${{ inputs.openwrt_kernel }}-${{ hashFiles('config/**') }}
-          restore-keys: |
-            ${{ runner.os }}-openwrt-${{ inputs.source_branch }}-${{ inputs.openwrt_kernel }}-
-            ${{ runner.os }}-openwrt-${{ inputs.source_branch }}-
     
       - name: Initialization environment
         id: init
