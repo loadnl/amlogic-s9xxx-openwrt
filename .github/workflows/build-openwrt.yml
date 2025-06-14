@@ -225,11 +225,6 @@ jobs:
       - name: Install feeds
         run: cd openwrt/ && ./scripts/feeds install -a
 
-      # 在 feeds 安装后，make defconfig 前添加 patch Rust config 用于immortalwrt编译  其他遇错 则屏蔽
-      - name: Patch Rust LLVM config
-        run: |
-          find openwrt/feeds/packages/lang/rust/ -name "config.toml*" \
-            -exec sed -i 's/download-ci-llvm *= *true/download-ci-llvm = "if-unchanged"/g' {} +
 
       - name: Load custom configuration
         run: |
@@ -255,11 +250,11 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y clang
 
-          #RUST_PATCH_FILE="feeds/packages/lang/rust/Makefile"
-          #if [[ "${{ inputs.source_branch }}" == *"immortalwrt"* ]]; then
-          #    echo "Patching Rust Makefile to fix CI LLVM download error..."
-          #    sed -i '/define Build\/Compile/i\\tfind $(BUILD_DIR_BASE)/target-*/host/rustc-*/ -name config.toml -exec sed -i '\''s/download-ci-llvm *= *true/download-ci-llvm = "if-unchanged"/'\'' {} +' "$RUST_PATCH_FILE"
-          #fi
+          RUST_PATCH_FILE="feeds/packages/lang/rust/Makefile"
+          if [[ "${{ inputs.source_branch }}" == *"immortalwrt"* ]]; then
+              echo "Patching Rust Makefile to fix CI LLVM download error..."
+              sed -i '/define Build\/Compile/i\\tfind $(BUILD_DIR_BASE)/target-*/host/rustc-*/ -name config.toml -exec sed -i '\''s/download-ci-llvm *= *true/download-ci-llvm = "if-unchanged"/'\'' {} +' "$RUST_PATCH_FILE"
+          fi
 
           echo -e "$(nproc) thread compile"
           make -j$(($(nproc) + 1)) V=s || make -j1 || make -j1 V=s
