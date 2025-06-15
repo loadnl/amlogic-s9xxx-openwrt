@@ -235,10 +235,11 @@ jobs:
           cd openwrt/
           sudo apt-get update
           sudo apt-get install -y clang
+          
           if [[ "${{ inputs.source_branch }}" == *"immortalwrt"* ]]; then
-              echo "Patching Rust Makefile to fix CI LLVM download error..."
-              sed -i 's/--set=llvm\.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' feeds/packages/lang/rust/MakefileAdd commentMore actions
+              sed -i 's/--set=llvm\.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' feeds/packages/lang/rust/Makefile Add commentMore actions
           fi
+          
           echo -e "$(nproc) thread compile"
           make -j$(($(nproc) + 1)) V=s || make -j1 || make -j1 V=s
           echo "status=success" >> ${GITHUB_OUTPUT}
