@@ -5012,6 +5012,7 @@ CONFIG_PACKAGE_libxml2=y
 # CONFIG_PACKAGE_libzmq-curve is not set
 # CONFIG_PACKAGE_libzmq-nc is not set
 # CONFIG_PACKAGE_linux-atm is not set
+CONFIG_PACKAGE_linux-firmware-rtw89=y
 # CONFIG_PACKAGE_lmdb is not set
 # CONFIG_PACKAGE_log4cplus is not set
 # CONFIG_PACKAGE_loudmouth is not set
