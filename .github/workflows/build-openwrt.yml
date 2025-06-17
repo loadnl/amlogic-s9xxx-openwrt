@@ -100,7 +100,7 @@ on:
           - loadnl
 
 env:
-  FEEDS_CONF: myconfig/config/${{ inputs.source_branch }}/feeds.conf.default
+  #FEEDS_CONF: myconfig/config/${{ inputs.source_branch }}/feeds.conf.default
   CONFIG_FILE: myconfig/config/${{ inputs.source_branch }}/config
   DIY_P1_SH: myconfig/config/${{ inputs.source_branch }}/diy-part1.sh
   DIY_P2_SH: myconfig/config/${{ inputs.source_branch }}/diy-part2.sh
