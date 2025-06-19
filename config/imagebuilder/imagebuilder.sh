@@ -191,8 +191,8 @@ rebuild_firmware() {
         luci-mod-status luci-mod-system luci-proto-3g luci-proto-ipip luci-proto-ipv6 \
         luci-proto-ncm luci-proto-openconnect luci-proto-ppp luci-proto-qmi luci-proto-relay \
         \
-        luci-app-amlogic luci-i18n-amlogic-zh-cn luci-app-passwall ipt2socks dns2socks trojan-geoip chinaip-full kmod-rtw89 kmod-rtw89-pci rtw89-firmware wpad-openssl kmod-cfg80211 kmod-mac80211 iw wireless-tools wifi-scripts \
-        \
+        luci-app-amlogic luci-i18n-amlogic-zh-cn \
+        luci-app-passwall kmod-rtw89 kmod-rtw89-pci rtw89-firmware wireless-tools wifi-scripts\
         ${config_list} \
         "
 
