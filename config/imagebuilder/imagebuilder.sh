@@ -192,7 +192,7 @@ rebuild_firmware() {
         luci-proto-ncm luci-proto-openconnect luci-proto-ppp luci-proto-qmi luci-proto-relay \
         \
         luci-app-amlogic luci-i18n-amlogic-zh-cn \
-        luci-app-passwall kmod-rtw89 kmod-rtw89-pci wireless-tools wifi-scripts\
+        luci-app-v2raya kmod-rtw89 kmod-rtw89-pci wireless-tools wifi-scripts\
         ${config_list} \
         "
 
