@@ -97,7 +97,7 @@ on:
 env:
   PACKAGES: "luci-app-passwall ipt2socks dns2socks trojan-geoip chinaip-full kmod-rtw89 kmod-rtw89-pci rtw89-firmware wpad-openssl kmod-cfg80211 kmod-mac80211 iw wireless-tools wifi-scripts kmod-scsi-core"
   TZ: America/New_York
-  IMAGEBUILDER_SH: config/imagebuilder/imagebuilder.sh
+  IMAGEBUILDER_SH: myconfig/config/imagebuilder/imagebuilder.sh
 
 jobs:
   build:
@@ -107,6 +107,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          repository: loadnl/amlogic-s9xxx-openwrt
+          ref: main
+          path: myconfig
 
       - name: Initialization environment
         id: init
@@ -191,7 +195,7 @@ jobs:
 
       - name: Packaging OpenWrt
         if: ${{ steps.clean.outputs.status }} == 'success' && !cancelled()
-        uses: loadnl/amlogic-s9xxx-openwrt@main
+        uses: ophub/amlogic-s9xxx-openwrt@main
         with:
           openwrt_path: imagebuilder/output/*rootfs.tar.gz
           openwrt_board: ${{ inputs.openwrt_board }}
