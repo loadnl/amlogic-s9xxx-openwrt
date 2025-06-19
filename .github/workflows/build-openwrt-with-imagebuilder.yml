@@ -95,7 +95,7 @@ on:
           - loadnl
 
 env:
-  PACKAGES: "luci-app-passwall ipt2socks dns2socks trojan-geoip chinaip-full kmod-rtw89 kmod-rtw89-pci rtw89-firmware wpad-openssl kmod-cfg80211 kmod-mac80211 iw wireless-tools"
+  PACKAGES: "luci-app-passwall ipt2socks dns2socks trojan-geoip chinaip-full kmod-rtw89 kmod-rtw89-pci rtw89-firmware wpad-openssl kmod-cfg80211 kmod-mac80211 iw wireless-tools wifi-scripts kmod-scsi-core"
   TZ: America/New_York
   IMAGEBUILDER_SH: config/imagebuilder/imagebuilder.sh
 
