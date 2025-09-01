@@ -27,27 +27,13 @@ on:
         options:
           - all
           - sv-33a6x
-          - swan1-w28
-          - sw799
-          - tanix-tx6
-          - tb-ls3399
-          - tn3399
-          - tpm312
-          - tqc-a01
-          - tvi3315a
-          - vplus
-          - wxy-oec
-          - xiaobao
-          - yskj
-          - zcube1-max
-          - zk-r39a
-          - zysj
       openwrt_kernel:
         description: "Select kernel version"
         required: false
         default: "5.15.y_6.1.y"
         type: choice
         options:
+          - 6.1.149
           - 5.4.y
           - 5.10.y
           - 5.15.y
