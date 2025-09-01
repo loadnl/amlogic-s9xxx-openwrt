@@ -530,6 +530,8 @@ CONFIG_PACKAGE_kmod-mac80211=y
 CONFIG_PACKAGE_iw=y
 CONFIG_PACKAGE_wireless-tools=y
 CONFIG_PACKAGE_wpad-openssl=y
+CONFIG_PACKAGE_pciutils=y      # 提供 lspci
+CONFIG_PACKAGE_usbutils=y      # 提供 lsusb（如果是 USB 网卡）
 
 #
 # 4. Other Configuration
